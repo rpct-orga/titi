@@ -3,9 +3,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  container-job:
-    runs-on: runner-test-02
+  container-job-01:
+    runs-on: runner-test-03
     container: node:17.6.0
     steps:
       - run: node --version
       - run: npm --version
+      - run: sleep 120
+  container-job-02:
+    runs-on: runner-test-03
+    container: node
+    steps:
+      - run: node --version
+      - run: npm --version
+      - run: sleep 120
