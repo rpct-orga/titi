@@ -4,7 +4,7 @@ on:
 
 jobs:
   container-job:
-    runs-on: arc-runner-set
+    runs-on: runner-test-01
     container: node:17.6.0
     steps:
       - run: node --version
