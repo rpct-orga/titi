@@ -4,7 +4,7 @@ on:
 
 jobs:
   container-job:
-    runs-on: runner-test-01
+    runs-on: runner-test-02
     container: node:17.6.0
     steps:
       - run: node --version
