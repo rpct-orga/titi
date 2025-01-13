@@ -4,14 +4,14 @@ on:
 
 jobs:
   container-job-01:
-    runs-on: runner-test-03
+    runs-on: runner-test-04
     container: node:17.6.0
     steps:
       - run: node --version
       - run: npm --version
       - run: sleep 120
   container-job-02:
-    runs-on: runner-test-03
+    runs-on: runner-test-04
     container: node
     steps:
       - run: node --version
