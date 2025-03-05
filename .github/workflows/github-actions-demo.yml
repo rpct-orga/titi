@@ -9,11 +9,11 @@ jobs:
     steps:
       - run: node --version
       - run: npm --version
-      - run: sleep 120
+      - run: mkdir /toto
   container-job-02:
     runs-on: arc-runner-set
     container: node
     steps:
       - run: node --version
       - run: npm --version
-      - run: sleep 120
+      - run: mkdir /titi
