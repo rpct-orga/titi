@@ -3,12 +3,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  container-job-01:
-#    runs-on: arc-runner-set
-    runs-on: self-hosted
-    container: node:17.6.0
+  container-build:
+    runs-on: arc-runner-set
+    container: golang
     steps:
-      - run: node --version
-      - run: npm --version
-      - run: mkdir /toto
-      - run: whoami
+    - run: git clone https://github.com/richardpct/go-hostname
