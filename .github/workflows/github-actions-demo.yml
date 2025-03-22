@@ -11,3 +11,4 @@ jobs:
     - name: build
       run: |
         go mod init example/hello
+        go build .
