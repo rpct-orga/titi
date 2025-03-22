@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           hello
-        key: titi
+        key: ${{ github.run_id }}-${{ github.run_attempt}}
 
   container-exec:
     needs: container-build
@@ -31,7 +31,7 @@ jobs:
       id: cache
       with:
         path: hello
-        key: titi
+        key: ${{ github.run_id }}-${{ github.run_attempt}}
     - name: exec
       run: |
         ./hello
