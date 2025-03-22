@@ -21,6 +21,8 @@ jobs:
         path: |
           hello
         key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
+
+jobs:
   container-exec:
     runs-on: self-hosted
     container: golang
