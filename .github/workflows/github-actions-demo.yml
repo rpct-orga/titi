@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           hello
-        key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
+        key: titi
 
   container-exec:
     needs: container-build
@@ -31,7 +31,7 @@ jobs:
       id: cache
       with:
         path: hello
-        key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
+        key: titi
     - name: exec
       run: |
         ./hello
