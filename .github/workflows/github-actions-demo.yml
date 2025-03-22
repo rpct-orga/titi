@@ -21,7 +21,7 @@ jobs:
         path: |
           hello
         key: toto
-  container-build:
+  container-exec:
     runs-on: self-hosted
     container: golang
     steps:
