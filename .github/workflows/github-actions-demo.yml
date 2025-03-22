@@ -20,7 +20,7 @@ jobs:
       with:
         path: |
           hello
-        key: toto
+        key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
   container-exec:
     runs-on: self-hosted
     container: golang
@@ -29,7 +29,7 @@ jobs:
       id: cache
       with:
         path: hello
-        key: toto
+        key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
     - name: exec
       run: |
         ./hello
