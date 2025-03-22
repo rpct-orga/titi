@@ -22,8 +22,8 @@ jobs:
           hello
         key: ${{ steps.cache-primes-restore.outputs.cache-primary-key }}
 
-jobs:
   container-exec:
+    needs: container-build
     runs-on: self-hosted
     container: golang
     steps:
