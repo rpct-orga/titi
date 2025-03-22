@@ -14,3 +14,10 @@ jobs:
         go mod tidy
         go build -buildvcs=false -o hello .
         ls -la
+    - name: Save binary
+      id: cache-primes-save
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          hello
+        key: toto
