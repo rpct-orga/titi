@@ -9,4 +9,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: build
-      run: make build
+      run: go build -o go-hostname
