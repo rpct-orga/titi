@@ -26,3 +26,4 @@ jobs:
       with:
         path: hello
         key: toto
+      run: ./hello
