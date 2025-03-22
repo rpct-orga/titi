@@ -12,3 +12,4 @@ jobs:
       run: |
         go mod init example/hello
         go mod tidy
+        go build -o hello
