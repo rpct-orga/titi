@@ -8,5 +8,5 @@ jobs:
     container: golang
     steps:
     - uses: actions/checkout@v4
-    - name: ls
-      run: ls -la
+    - name: build
+      run: make build
