@@ -5,7 +5,7 @@ on:
 jobs:
   container-job-01:
 #    runs-on: arc-runner-set
-    runs-on: runner-vm-2.317
+    runs-on: self-hosted
     container: node:17.6.0
     steps:
       - run: node --version
