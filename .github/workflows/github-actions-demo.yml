@@ -21,3 +21,8 @@ jobs:
         path: |
           hello
         key: toto
+    - uses: actions/cache/restore@v4
+      id: cache
+      with:
+        path: hello
+        key: toto
