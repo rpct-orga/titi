@@ -13,3 +13,4 @@ jobs:
         go mod init example/hello
         go mod tidy
         go build -buildvcs=false -o hello .
+        ls -la
