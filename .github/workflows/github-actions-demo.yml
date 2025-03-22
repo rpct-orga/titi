@@ -9,5 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: build
-      run: go mod init
-      run: go build -o go-hostname
+      run: |
+        go mod init
+        go build -o go-hostname
