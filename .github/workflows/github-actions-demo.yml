@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-        path: hello
+        name: hello
     - name: exec
       run: |
         ./hello
