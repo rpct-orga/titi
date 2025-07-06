@@ -23,7 +23,7 @@ jobs:
 
   container-exec:
     needs: container-build
-    runs-on: self-hosted
+    runs-on: arc-runner-set
     container: golang
     steps:
     - uses: actions/download-artifact@v4
