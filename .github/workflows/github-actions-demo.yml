@@ -12,35 +12,35 @@ jobs:
         sudo apt-get -y upgrade
         curl https://www.google.fr
 
-#  container-build:
-#    runs-on: rpct-test
-#    container: golang
-#    steps:
-#    - uses: actions/checkout@v4
-#    - name: build
-#      run: |
-#        go mod init example/hello
-#        go mod tidy
-#        go build -buildvcs=false -o hello .
-#        ls -la
-#    - name: upload binary
-#      uses: actions/upload-artifact@v4
-#      with:
-#        name: hello
-#        path: |
-#          hello
-#
-#  container-exec:
-#    needs: container-build
-#    runs-on: rpct-test
-#    container: golang
-#    steps:
-#    - uses: actions/download-artifact@v4
-#      with:
-#        name: hello
-#    - name: exec
-#      run: |
-#        ./hello
+  container-build:
+    runs-on: rpct-test
+    container: golang
+    steps:
+    - uses: actions/checkout@v4
+    - name: build
+      run: |
+        go mod init example/hello
+        go mod tidy
+        go build -buildvcs=false -o hello .
+        ls -la
+    - name: upload binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello
+        path: |
+          hello
+
+  container-exec:
+    needs: container-build
+    runs-on: rpct-test
+    container: golang
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: hello
+    - name: exec
+      run: |
+        ./hello
 
 #jobs:
 #  container-build:
