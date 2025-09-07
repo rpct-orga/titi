@@ -4,7 +4,7 @@ on:
 
 jobs:
   container-build:
-    runs-on: arc-runner-set
+    runs-on: rpct-test
     container: golang
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
 
   container-exec:
     needs: container-build
-    runs-on: arc-runner-set
+    runs-on: rpct-test
     container: golang
     steps:
     - uses: actions/download-artifact@v4
