@@ -6,8 +6,11 @@ jobs:
   test:
     runs-on: rpct-test
     steps:
-    - name: hell
-      run: echo 'hello'
+    - name: hello
+      run: |
+        sudo apt-get update
+        sudo apt-get -y upgrade
+        curl https://www.google.fr
 
 #  container-build:
 #    runs-on: rpct-test
