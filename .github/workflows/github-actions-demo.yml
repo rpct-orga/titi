@@ -49,6 +49,7 @@ jobs:
         ls -la
         chmod 755 hello
         ls -la
+        ./hello
 
 #jobs:
 #  container-build:
