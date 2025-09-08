@@ -46,7 +46,7 @@ jobs:
         name: hello
     - name: exec
       run: |
-        ./hello
+        ls -la
 
 #jobs:
 #  container-build:
