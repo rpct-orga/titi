@@ -47,6 +47,8 @@ jobs:
     - name: exec
       run: |
         ls -la
+        chmod 755 hello
+        ls -la
 
 #jobs:
 #  container-build:
