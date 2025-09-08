@@ -35,15 +35,18 @@ jobs:
     runs-on: rpct-test
     container: nginx
     steps:
-    - name: test
-      run: |
-        apt-get update
-        apt-get upgrade -y
-        apt-get install -y vim
+#    - name: test
+#      run: |
+#        apt-get update
+#        apt-get upgrade -y
+#        apt-get install -y vim
     - name: Download
       uses: actions/download-artifact@v5
       with:
         name: hello
+    - name: exec
+      run: |
+        ./hello
 
 #jobs:
 #  container-build:
