@@ -33,14 +33,13 @@ jobs:
   container-exec:
     needs: container-build
     runs-on: rpct-test
-    container: golang
+    container: nginx
     steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: hello
-    - name: exec
+    - name: test
       run: |
-        ./hello
+        sudo apt-get update
+        sudo apt-get upgrade -y
+        sudo apt-get install -y vim
 
 #jobs:
 #  container-build:
