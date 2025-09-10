@@ -55,10 +55,8 @@ jobs:
     runs-on: rpct-test
     container:
       image: moby/buildkit:rootless
-      options: --user 1001:1001
     steps:
       - uses: actions/checkout@v4
-
       - name: Build to tar (no push)
         run: |
           mkdir -p "$HOME/.buildkit-cache"
