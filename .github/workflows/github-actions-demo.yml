@@ -57,6 +57,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: build
       run: |
-        apt-get update
-        apt-get -y upgrade
-        apt-get -y install buildah
+        sudo apt-get update
+        sudo apt-get -y upgrade
+        sudo apt-get -y install buildah
