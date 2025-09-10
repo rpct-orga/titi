@@ -3,53 +3,53 @@ on:
   workflow_dispatch:
 
 jobs:
-#  test:
-#    runs-on: rpct-test
-#    steps:
-#    - name: hello
-#      run: |
-#        sudo apt-get update
-#        sudo apt-get -y upgrade
-#        curl https://www.google.fr
+  test:
+    runs-on: rpct-test
+    steps:
+    - name: hello
+      run: |
+        sudo apt-get update
+        sudo apt-get -y upgrade
+        curl https://www.google.fr
 
-#  container-build:
-#    runs-on: rpct-test
-#    container: golang
-#    steps:
-#    - uses: actions/checkout@v4
-#    - name: build
-#      run: |
-#        go mod init example/hello
-#        go mod tidy
-#        go build -buildvcs=false -o hello .
-#        ls -la
-#    - name: upload binary
-#      uses: actions/upload-artifact@v4
-#      with:
-#        name: hello
-#        path: |
-#          hello
+  container-build:
+    runs-on: rpct-test
+    container: golang
+    steps:
+    - uses: actions/checkout@v4
+    - name: build
+      run: |
+        go mod init example/hello
+        go mod tidy
+        go build -buildvcs=false -o hello .
+        ls -la
+    - name: upload binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello
+        path: |
+          hello
 
-#  container-exec:
-#    needs: container-build
-#    runs-on: rpct-test
-#    container: nginx
-#    steps:
-#    - name: test
-#      run: |
-#        apt-get update
-#        apt-get upgrade -y
-#        apt-get install -y vim
-#    - name: Download
-#      uses: actions/download-artifact@v5
-#      with:
-#        name: hello
-#    - name: exec
-#      run: |
-#        ls -la
-#        chmod 755 hello
-#        ls -la
-#        ./hello
+  container-exec:
+    needs: container-build
+    runs-on: rpct-test
+    container: nginx
+    steps:
+    - name: test
+      run: |
+        apt-get update
+        apt-get upgrade -y
+        apt-get install -y vim
+    - name: Download
+      uses: actions/download-artifact@v5
+      with:
+        name: hello
+    - name: exec
+      run: |
+        ls -la
+        chmod 755 hello
+        ls -la
+        ./hello
 
   buildah-build:
     runs-on: rpct-test
