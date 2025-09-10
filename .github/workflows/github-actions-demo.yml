@@ -54,24 +54,9 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: quay.io/buildah/stable:latest
-      # Important in ARC: match the workspace owner or ensure fsGroup in RRS
-      options: --user 1001:1001
+      image: moby/buildkit:master
     steps:
       - uses: actions/checkout@v4
-
-      - name: Build with Buildah (no mounts)
-        env:
-          XDG_RUNTIME_DIR: ${{ github.workspace }}/.xdg
+      - name: build build
         run: |
-          # Prepare writable dirs under the workspace
-          ROOT="$GITHUB_WORKSPACE/.containers/storage"
-          RUNROOT="$GITHUB_WORKSPACE/.containers/runroot"
-          mkdir -p "$ROOT" "$RUNROOT" "$XDG_RUNTIME_DIR"
-
-          # Sanity: show who we are and what driver Buildah will use
-          id
-          buildah --version
-
-          buildah --storage-driver vfs --root "$ROOT" --runroot "$RUNROOT" \
-            bud -t registry.example.com/app:0.1 .
+          la -la
