@@ -59,4 +59,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: build build
         run: |
-          la -la
+          ls -la
