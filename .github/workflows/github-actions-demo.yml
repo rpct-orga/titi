@@ -5,12 +5,12 @@ on:
 jobs:
   test:
     runs-on: rpct-test
-    steps:
-    - name: hello
-      run: |
-        sudo apt-get update
-        sudo apt-get -y upgrade
-        curl https://www.google.fr
+#    steps:
+#    - name: hello
+#      run: |
+#        sudo apt-get update
+#        sudo apt-get -y upgrade
+#        curl https://www.google.fr
 
 #  container-build:
 #    runs-on: rpct-test
@@ -54,16 +54,9 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: moby/buildkit:rootless
+      image: quay.io/podman/stable
     steps:
       - uses: actions/checkout@v4
-      - name: Build to tar (no push)
+      - name: Build
         run: |
-          mkdir -p "$HOME/.buildkit-cache"
-          buildctl-daemonless.sh build \
-            --progress=plain \
-            --frontend=dockerfile.v0 \
-            --local context=. \
-            --local dockerfile=. \
-            --export-cache type=inline \
-            --output type=tar,dest=./image.tar
+          id
