@@ -3,8 +3,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: rpct-test
+#  test:
+#    runs-on: rpct-test
 #    steps:
 #    - name: hello
 #      run: |
