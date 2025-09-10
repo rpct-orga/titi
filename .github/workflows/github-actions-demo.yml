@@ -58,7 +58,7 @@ jobs:
       options: --user 1001:1001
     steps:
       - uses: actions/checkout@v4
-      - name: Build with Buildah (rootless-friendly)
+      - name: AAAAAAAAA
         env:
           STORAGE_DRIVER: vfs
           BUILDAH_ISOLATION: chroot
