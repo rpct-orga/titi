@@ -54,14 +54,12 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: moby/buildkit:rootless
+      image: quay.io/buildah/stable
+      options: --user 1001:1001
     steps:
-    - uses: actions/checkout@v4
-    - name: build
-      run: |
-        id -u
-#        buildctl-daemonless.sh build \
-#          --frontend=dockerfile.v0 \
-#          --local context=. --local dockerfile=. \
-#          --output type=tar,dest=/workspace/app-docker.tar
-#        ls -lh /workspace/app-docker.tar
+      - uses: actions/checkout@v4
+      - name: Build with Buildah (rootless, vfs)
+        env:
+          STORAGE_DRIVER: vfs
+        run: |
+          buildah bud -t registry.example.com/app:tag .
