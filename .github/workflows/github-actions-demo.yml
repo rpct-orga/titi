@@ -55,6 +55,8 @@ jobs:
     runs-on: rpct-test
     container:
       image: quay.io/podman/stable
+    env:
+      STORAGE_DRIVER: vfs
     steps:
       - uses: actions/checkout@v4
       - name: Build
