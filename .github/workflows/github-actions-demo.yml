@@ -62,4 +62,5 @@ jobs:
       - name: Build
         run: |
           id
-          podman run ubi8 echo hello
+          sleep 3600
+#          podman run ubi8 echo hello
