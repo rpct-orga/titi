@@ -60,7 +60,6 @@ jobs:
     - name: build
       run: |
         id -u
-        ls -ld /__w /__w/_temp
 #        buildctl-daemonless.sh build \
 #          --frontend=dockerfile.v0 \
 #          --local context=. --local dockerfile=. \
