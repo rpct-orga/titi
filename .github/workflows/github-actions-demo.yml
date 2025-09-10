@@ -54,11 +54,15 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: ubuntu
+      image: quay.io/buildah/stable
+      options: --user 1001:1001
     steps:
       - uses: actions/checkout@v4
-      - name: Build with Buildah
+      - name: Build with Buildah (rootless-friendly)
+        env:
+          STORAGE_DRIVER: vfs
+          BUILDAH_ISOLATION: chroot
+          XDG_RUNTIME_DIR: ${{ github.workspace }}/.xdg
         run: |
-          apt-get update
-          apt-get -y install buildah
-          buildah build .
+          mkdir -p "$XDG_RUNTIME_DIR"
+          buildah bud -t registry.example.com/app:0.1 .
