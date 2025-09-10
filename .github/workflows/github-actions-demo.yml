@@ -54,9 +54,18 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: moby/buildkit:master
+      image: moby/buildkit:rootless
+      options: --user 1001:1001
     steps:
       - uses: actions/checkout@v4
-      - name: build build
+
+      - name: Build to tar (no push)
         run: |
-          ls -la
+          mkdir -p "$HOME/.buildkit-cache"
+          buildctl-daemonless.sh build \
+            --progress=plain \
+            --frontend=dockerfile.v0 \
+            --local context=. \
+            --local dockerfile=. \
+            --export-cache type=inline \
+            --output type=tar,dest=./image.tar
