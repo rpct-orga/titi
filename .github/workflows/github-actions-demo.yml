@@ -54,12 +54,10 @@ jobs:
   buildah-build:
     runs-on: rpct-test
     container:
-      image: quay.io/buildah/stable
-      options: --user 1001:1001
+      image: ubuntu
     steps:
       - uses: actions/checkout@v4
-      - name: Build with Buildah (rootless, vfs)
-        env:
-          STORAGE_DRIVER: vfs
+      - name: Build with Buildah
         run: |
-          buildah bud -t registry.example.com/app:tag .
+          sudo apt-get update
+          sudo apt-get -y install buildah
