@@ -53,11 +53,13 @@ jobs:
 
   buildah-build:
     runs-on: rpct-test
+    container: moby/buildkit:rootless
     steps:
     - uses: actions/checkout@v4
     - name: build
       run: |
-        sudo apt-get update
-        sudo apt-get -y upgrade
-        sudo apt-get -y install buildah
-        buildah build .
+        buildctl-daemonless.sh build \
+          --frontend=dockerfile.v0 \
+          --local context=. --local dockerfile=. \
+          --output type=tar,dest=/workspace/app-docker.tar
+        ls -lh /workspace/app-docker.tar
