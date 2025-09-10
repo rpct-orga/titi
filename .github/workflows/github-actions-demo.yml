@@ -53,7 +53,9 @@ jobs:
 
   buildah-build:
     runs-on: rpct-test
-    container: moby/buildkit:rootless
+    container:
+      image: moby/buildkit:rootless
+      options: --user 1001:1001
     steps:
     - uses: actions/checkout@v4
     - name: build
