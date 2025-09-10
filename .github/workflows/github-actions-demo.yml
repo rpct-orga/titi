@@ -55,13 +55,14 @@ jobs:
     runs-on: rpct-test
     container:
       image: moby/buildkit:rootless
-      options: --user 1001:1001
     steps:
     - uses: actions/checkout@v4
     - name: build
       run: |
-        buildctl-daemonless.sh build \
-          --frontend=dockerfile.v0 \
-          --local context=. --local dockerfile=. \
-          --output type=tar,dest=/workspace/app-docker.tar
-        ls -lh /workspace/app-docker.tar
+        id -u
+        ls -ld /__w /__w/_temp
+#        buildctl-daemonless.sh build \
+#          --frontend=dockerfile.v0 \
+#          --local context=. --local dockerfile=. \
+#          --output type=tar,dest=/workspace/app-docker.tar
+#        ls -lh /workspace/app-docker.tar
