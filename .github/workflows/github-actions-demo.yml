@@ -72,16 +72,6 @@ jobs:
           docker build -t toto .
           docker images
           docker run toto
-  docker-in-docker2:
-    runs-on: rpct-test
-    container: docker:dind
-    steps:
-      - uses: actions/checkout@v4
-      - name: list
-        run: |
-          docker build -t toto .
-          docker images
-          docker run toto
   docker-in-docker3:
     runs-on: rpct-test
     container: docker:dind
