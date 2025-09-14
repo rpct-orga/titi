@@ -53,8 +53,6 @@ jobs:
 
   docker-in-docker:
     runs-on: rpct-test
-    container:
-      image: nginx
     steps:
       - uses: actions/checkout@v4
       - name: list
