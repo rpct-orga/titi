@@ -51,16 +51,14 @@ jobs:
         ls -la
         ./hello
 
-  buildah-build:
+  docker-in-docker:
     runs-on: rpct-test
     container:
-      image: quay.io/podman/stable
-    env:
-      STORAGE_DRIVER: vfs
+      image: nginx
     steps:
       - uses: actions/checkout@v4
-      - name: Build
+      - name: list
         run: |
           id
-          sleep 3600
-#          podman run ubi8 echo hello
+          sleep 120
+          docker ps -a
