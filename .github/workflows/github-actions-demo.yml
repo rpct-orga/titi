@@ -53,6 +53,7 @@ jobs:
 
   docker-in-docker:
     runs-on: rpct-test
+    container: docker:dind
     steps:
       - uses: actions/checkout@v4
       - name: list
