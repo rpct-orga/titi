@@ -1,4 +1,4 @@
-FROM amd64/swift
+FROM gcc
 
 RUN echo "Hello world" > /tmp/hello_world.txt
 
