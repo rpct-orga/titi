@@ -58,5 +58,5 @@ jobs:
       - name: list
         run: |
           id
-          sleep 120
-          docker ps -a
+          docker build .
+          docker images
