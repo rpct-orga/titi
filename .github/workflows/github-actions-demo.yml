@@ -58,5 +58,5 @@ jobs:
       - name: list
         run: |
           id
-          docker build .
+          docker build -t toto .
           docker images
